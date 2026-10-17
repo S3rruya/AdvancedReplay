@@ -1,5 +1,7 @@
 # AdvancedReplay
 
+> SpaceCraft fork: the Java 21 / Minecraft 1.21.11 Folia recorder and isolated Paper arena player are in [`folia-replay/`](folia-replay/README.md). Build with `./gradlew :folia-replay:build`. The original plugin below is retained separately and is not Folia-compatible.
+
 AdvancedReplay is a Minecraft 1.8 & 1.21 Replay plugin. It can record players on your Server and save the recorded data to a file or database, so you can watch the replays at any time. Currently it records almost every action a player does and can be easily controlled with commands or the API.
 
 ## Downloads
