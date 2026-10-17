@@ -1,0 +1,15 @@
+name: AdvancedReplay
+version: '${version}'
+main: me.jumper251.replay.arena.ArenaReplayPlugin
+api-version: '1.21.11'
+folia-supported: true
+authors: [Jumper251, SpaceCraft]
+softdepend: [packetevents]
+commands:
+  replay:
+    description: Record on Folia or watch isolated arena replays on Paper
+    permission: replay.admin
+    aliases: [rp]
+permissions:
+  replay.admin:
+    default: op

@@ -43,4 +43,5 @@ buildNumber.properties
 
 .gradle/
 build/
+.runtime-tests/
 !gradle/wrapper/gradle-wrapper.jar

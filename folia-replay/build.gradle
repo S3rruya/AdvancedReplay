@@ -1,0 +1,38 @@
+plugins {
+    id 'java'
+    id 'com.gradleup.shadow'
+}
+
+version = '2.0.0-spacecraft.1'
+repositories {
+    mavenLocal()
+    mavenCentral()
+    maven { url = 'https://repo.papermc.io/repository/maven-public/' }
+    maven { url = 'https://repo.codemc.io/repository/maven-releases/' }
+}
+dependencies {
+    compileOnly 'dev.folia:folia-api:1.21.11-R0.1-SNAPSHOT'
+    compileOnly 'com.github.retrooper:packetevents-spigot:2.13.0'
+    implementation 'com.google.code.gson:gson:2.13.2'
+    testImplementation 'org.junit.jupiter:junit-jupiter:5.11.4'
+    testImplementation 'dev.folia:folia-api:1.21.11-R0.1-SNAPSHOT'
+    testRuntimeOnly 'org.junit.platform:junit-platform-launcher:1.11.4'
+}
+java {
+    toolchain { languageVersion = JavaLanguageVersion.of(21) }
+}
+tasks.withType(JavaCompile).configureEach {
+    options.release = 21
+    options.encoding = 'UTF-8'
+}
+test { useJUnitPlatform() }
+processResources {
+    filteringCharset = 'UTF-8'
+    filesMatching('plugin.yml') { expand(version: project.version) }
+}
+shadowJar {
+    archiveFileName = 'AdvancedReplay-FoliaPaper.jar'
+    from(rootProject.file('LICENSE')) { into 'META-INF' }
+    relocate 'com.google.gson', 'me.jumper251.replay.arena.libs.gson'
+}
+build.dependsOn shadowJar

@@ -1,0 +1,27 @@
+# Same JAR, separate roles. PLAYBACK is intentionally refused on Folia.
+role: RECORDER
+# Absolute shared directory, or relative to plugins/AdvancedReplay.
+# Alternatively transfer completed *.arena-replay.gz files to the other server.
+storage-directory: replays-v2
+recording:
+  sample-period-ticks: 1
+  max-duration-seconds: 900
+  max-events: 1000000
+playback:
+  templates-directory: templates
+  max-concurrent-sessions: 4
+  # Return here after playback, including reconnect after a server restart.
+  return-world: world
+  return-position: [0.5, 80.0, 0.5]
+arenas:
+  example:
+    revision: '1'
+    source-world: Duels
+    source-origin: [1000, 64, 1000]
+    source-min: [950, 0, 950]
+    source-max: [1050, 200, 1050]
+    # Paper: an OFFLINE world copy at templates/example-v1/ containing level.dat.
+    template: example-v1
+    # Source origin maps to this position in the copied world. No rotation.
+    target-origin: [1000, 64, 1000]
+    spectator-position: [1000.5, 85.0, 1000.5]
