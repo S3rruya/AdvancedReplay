@@ -42,6 +42,7 @@ Folia used four region tick threads. Recorder initialized without ProtocolLib or
 - Viewer quit during a paused replay unloads/removes the private world. Rejoining restores survival mode and the saved return location.
 - Paper shutdown with an active paused replay preserves return PDC. The next startup reclaims the unused marked world, and the viewer recovers on join.
 - The final JAR was booted again on both server builds, then used for another recording/save and playback/leave smoke test.
+- Normal Folia shutdown with a recording already in progress completed a 1,236-event, 30.9-second save before the test JVM exited.
 
 Runtime logs were scanned for plugin exceptions, off-owner access, asynchronous world access, scheduler failures and ZIP/classloader errors; none were found in the exercised paths. OSHI Windows performance-counter warnings and the test servers' offline-mode/version notifications are unrelated startup messages.
 
